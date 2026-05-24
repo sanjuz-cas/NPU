@@ -369,8 +369,8 @@ Post-route signoff was performed at the worst-case slow corner (`max_ss_100C_1v6
 |---|---|---|
 | Setup Timing | ✅ Clean | Zero violations |
 | Hold Timing | ✅ Clean | Zero violations |
-| IR Drop (VPWR) | ✅ 0.05% | Well within < 2% signoff budget |
-| IR Drop (VGND) | ✅ 0.05% | Well within < 2% signoff budget |
+| IR Drop (VPWR) | ✅ 0.01% | Well within < 2% signoff budget |
+| IR Drop (VGND) | ✅ 0.01% | Well within < 2% signoff budget |
 | DRC | ✅ 0 violations | SkyWater 130nm rule deck — Magic & KLayout |
 | LVS | ✅ Circuits match uniquely | Physical layout ≡ synthesis netlist |
 | XOR GDS | ✅ 0 differences | Magic vs. KLayout GDS agree exactly |
