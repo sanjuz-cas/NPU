@@ -40,7 +40,6 @@
   - [Running the LibreLane Flow](#running-the-librelane-flow)
 - [Design Metrics & Signoff](#design-metrics--signoff)
 - [Future Work](#future-work)
-- [Team](#team)
 - [References](#references)
 
 ---
@@ -662,7 +661,7 @@ The 6-bit opcode field has room for 52 additional instructions. Suggested additi
 
 
 ### 3. Low-Power Design
-A clock gating cell (`Clk_Gating_Cell`) is already present in the RTL ([`RTL/Clock_Gating_Cell`](https://github.com/Ammar-Wahidi/NPU/tree/main/RTL/Clock_Gating_Cell)) but not yet integrated into the datapath. Planned techniques:
+A clock gating cell (`Clk_Gating_Cell`) is already present in the RTL ([`RTL/Clock_Gating_Cell`](RTL/Clock_Gating_Cell)) but not yet integrated into the datapath. Planned techniques:
 - **Fine-grained clock gating** — gate each functional unit (SA, bias adder, req unit, ReLU) independently when idle using the existing ICG cell
 - **Operand isolation** — insert isolation cells on datapath inputs when a unit is clock-gated to prevent spurious switching power
 - **Multi-voltage islands** — run the SRAM and I/O ring at a lower supply voltage than the compute core
@@ -704,25 +703,6 @@ Key hardware changes required:
 - **On-chip DMA** — replace the UART-driven APB loader with a DMA engine that bursts weights from an external SPI flash, enabling standalone inference without a host PC
 - **RISC-V integration** — replace the custom ISA CU with a small RISC-V core (e.g. PicoRV32) running firmware, using the systolic array as a memory-mapped accelerator
 - **Multi-chip tiling** — add an inter-chip link to chain multiple nanoNPU dies together for larger model inference across chips
-
----
-
-## Team
-
-### RTL-to-GDSII
-
-| Name | GitHub |
-|---|---|
-| Ammar Wahidi | [@Ammar-Wahidi](https://github.com/Ammar-Wahidi) |
-| Omar Mohamed Eid | [@OmarEid66](https://github.com/OmarEid66) |
-| Mohamed Ahmed | [@mhmd-ahmdezz](https://github.com/mhmd-ahmdezz) |
-
-### Software Model (CNN Application, Training & Inference)
-
-| Name | Role | GitHub |
-|---|---|---|
-| Amr Wahidi | CNN model, training & inference | [@amr10w](https://github.com/amr10w) |
-| Ammar Wahidi | INT8 quantization | [@Ammar-Wahidi](https://github.com/Ammar-Wahidi) |
 
 ---
 
